@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HighLife DMV</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Manrope',system-ui,-apple-system,sans-serif;
+  background:#f7f6f3;
+  color:#1a1a1a;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  -webkit-font-smoothing:antialiased;
+  padding:40px 24px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Ambient background */
+body::before{
+  content:'';position:fixed;top:-30%;right:-15%;
+  width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(139,115,85,.06) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;bottom:-25%;left:-10%;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,0,0,.03) 0%,transparent 70%);
+  pointer-events:none;z-index:0;
+}
+
+.container{
+  max-width:900px;width:100%;
+  position:relative;z-index:1;
+}
+
+/* Header */
+.header{
+  text-align:center;
+  margin-bottom:56px;
+}
+.logo{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:64px;height:64px;border-radius:16px;
+  background:#1a1a1a;color:#f7f6f3;
+  font-size:24px;font-weight:800;letter-spacing:-1px;
+  margin-bottom:20px;
+}
+.header h1{
+  font-size:2.2rem;font-weight:800;letter-spacing:-1px;
+  margin-bottom:8px;color:#1a1a1a;
+}
+.header p{
+  font-size:.88rem;color:#999;font-weight:400;
+  letter-spacing:.5px;
+}
+
+/* Cards Grid */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:20px;
+  padding:36px 32px;
+  text-decoration:none;color:inherit;
+  transition:all .3s cubic-bezier(.25,.1,.25,1);
+  position:relative;
+  overflow:hidden;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(0,0,0,.08);
+  border-color:rgba(0,0,0,.1);
+}
+.card:active{transform:translateY(-2px)}
+
+.card-icon{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:20px;
+  font-weight:700;
+}
+
+.card h2{
+  font-size:1.15rem;font-weight:700;letter-spacing:-.3px;
+  margin-bottom:8px;
+}
+.card p{
+  font-size:.82rem;color:#888;line-height:1.55;
+  margin-bottom:16px;
+}
+.card-link{
+  font-size:.72rem;font-weight:600;text-transform:uppercase;
+  letter-spacing:1.2px;color:#8B7355;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.card-link svg{width:14px;height:14px;fill:#8B7355;transition:transform .2s}
+.card:hover .card-link svg{transform:translateX(3px)}
+
+/* Card Variants */
+.card-dashboard .card-icon{background:rgba(26,26,26,.06);color:#1a1a1a}
+.card-finances .card-icon{background:rgba(139,115,85,.08);color:#8B7355}
+.card-prospect .card-icon{background:rgba(59,130,246,.06);color:#2563eb}
+.card-records .card-icon{background:rgba(139,92,246,.06);color:#7c3aed}
+
+/* Footer */
+.footer{
+  text-align:center;
+  margin-top:56px;
+  padding-top:24px;
+  border-top:1px solid rgba(0,0,0,.06);
+}
+.footer p{
+  font-size:.72rem;color:#bbb;letter-spacing:.5px;
+}
+.footer a{color:#8B7355;text-decoration:none;font-weight:600}
+
+/* Responsive */
+@media(max-width:640px){
+  .cards{grid-template-columns:1fr}
+  .header h1{font-size:1.6rem}
+  .card{padding:28px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="header">
+    <div class="logo">HL</div>
+    <h1>HighLife DMV</h1>
+    <p>Podcast Studio & Creative Agency</p>
+  </header>
+
+  <div class="cards">
+
+    <a href="https://hldashboard.vercel.app" class="card card-dashboard" target="_blank">
+      <div class="card-icon">D</div>
+      <h2>HL Dashboard</h2>
+      <p>Artist portal, admin panel, release pipeline, Google Calendar & Drive integrations.</p>
+      <span class="card-link">Open Dashboard <svg viewBox="0 0 16 16"><path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg></span>
+    </a>
+
+    <a href="https://highlife-finance.vercel.app" class="card card-finances" target="_blank">
+      <div class="card-icon">$</div>
+      <h2>HL Finances</h2>
+      <p>Studio & podcast income calculator. Track sessions, revenue, and profit connected to Google Sheets.</p>
+      <span class="card-link">Open Finances <svg viewBox="0 0 16 16"><path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg></span>
+    </a>
+
+    <a href="https://highlife-crm.vercel.app" class="card card-prospect" target="_blank">
+      <div class="card-icon">LI</div>
+      <h2>HL Prospect CRM</h2>
+      <p>LinkedIn prospecting pipeline. Kanban board tracking prospects from discovery to booking.</p>
+      <span class="card-link">Open CRM <svg viewBox="0 0 16 16"><path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg></span>
+    </a>
+
+    <a href="https://www.highlifedmv.com" class="card card-records" target="_blank">
+      <div class="card-icon">R</div>
+      <h2>HL Records</h2>
+      <p>HighLife Records label. Studios in DC, Rockville, Baltimore. Artist management & releases.</p>
+      <span class="card-link">Visit Website <svg viewBox="0 0 16 16"><path d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg></span>
+    </a>
+
+  </div>
+
+  <footer class="footer">
+    <p>Cleveland Park, DC &middot; <a href="https://www.highlifedmv.com">highlifedmv.com</a></p>
+  </footer>
+</div>
+
+</body>
+</html>
